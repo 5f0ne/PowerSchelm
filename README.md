@@ -1,6 +1,5 @@
-# PowerSchelm - Powershell Data Aquisition and Analysis Framework (PD2AF)
-
-Different Powershell Tools for Data Aquisition and Analysis
+# PowerSchelm
+Powershell Data Aquisition and Analysis Framework (PD2AF) - Different Powershell Tools for Data Aquisition and Analysis
 
 ## Overview
 
