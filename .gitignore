@@ -3,3 +3,4 @@ test/
 template/
 wip/
 TODO.md
+*.dll
