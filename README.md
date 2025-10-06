@@ -19,7 +19,8 @@ Powershell Data Aquisition and Analysis Framework (PD2AF) - Different Powershell
 
 ## Manuals
 
-[Invoke-LiveBoxForensics](/docs/liveboxforensics.md)
-[Invoke-EZToolsForensics](/docs/eztoolsforensics.md)
-[Invoke-RamForensics](/docs/ramforensics.md)
-[Invoke-Kape](/docs/kape.md)
+- [Invoke-LiveBoxForensics](/docs/liveboxforensics.md)
+- [Invoke-EZToolsForensics](/docs/eztoolsforensics.md)
+- [Invoke-RamForensics](/docs/ramforensics.md)
+- [Invoke-Kape](/docs/kape.md)
+- [Invoke-Autoruns](/docs/autorunsc.md)
