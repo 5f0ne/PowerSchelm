@@ -13,7 +13,7 @@ Make sure that EZTools are in PATH.
 | Option          | Type   | Default                    | Description                                                                     |
 | --------------- | ------ | -------------------------- | ------------------------------------------------------------------------------- |
 | KapePath        | String | -                          | Path to kape image                                                              |
-| Output          | String | .\results\liveboxforensics | Path to write EZToolsForensics Output                                           |
+| Output          | String | .\results\eztoolsforensics | Path to write EZToolsForensics Output                                           |
 | EZToolsPathWord | String | Get-ZimmermanTools         | Unique word in the path to the EZTools to determine the correct value from PATH |
 | RebFile         | String | DFIRBatch.reb              | Name of the RebFile to be used for RECmd                                        |
 | ArchiveName     | String | ramforensics               | Name of the archive                                                             |
