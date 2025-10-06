@@ -11,8 +11,8 @@ Get ASEP with `autoruns` of an image.
 
 `.\Invoke-Autoruns.ps1 -Path [STRING] -Output [STRING] -AutorunscPath [STRING]`
 
-| Option        | Type   | Default                       | Description                                             |
-| ------------- | ------ | ----------------------------- | ------------------------------------------------------- |
-| Path          | String | -                             | Path of kape image on which autorunsc shall be executed |
-| Output        | String | .\results\autorunsc           | Path to write Autorunsc Output                          |
-| AutorunscPath | String | autorunsc.exe                 | Path to Kape Executable                                 |
+| Option        | Type   | Default             | Description                                        |
+| ------------- | ------ | ------------------- | -------------------------------------------------- |
+| Path          | String | -                   | Path of image on which autorunsc shall be executed |
+| Output        | String | .\results\autorunsc | Path to write Autorunsc Output                     |
+| AutorunscPath | String | autorunsc.exe       | Path to Autorunsc Executable                       |
