@@ -10,8 +10,8 @@ Make sure that Sigcheck is in PATH
 
 `.\Invoke-Sigcheck.ps1 -Path [STRING] -Output [STRING] -SigcheckPath [STRING]`
 
-| Option       | Type   | Default            | Description                   |
-| ------------ | ------ | ------------------ | ----------------------------- |
-| Path         | String | -                  | Path to evtx directory        |
-| Output       | String | .\results\sigcheck | Path to write Sigcheck Output |
-| SigcheckPath | String | sigcheck.exe       | Path to Sigcheck Executable   |
+| Option       | Type   | Default            | Description                                                            |
+| ------------ | ------ | ------------------ | ---------------------------------------------------------------------- |
+| Path         | String | -                  | Path to directory in which all executables will be checked recursively |
+| Output       | String | .\results\sigcheck | Path to write Sigcheck Output                                          |
+| SigcheckPath | String | sigcheck.exe       | Path to Sigcheck Executable                                            |
