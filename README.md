@@ -15,6 +15,7 @@ Powershell Data Aquisition and Analysis Framework (PD2AF) - Different Powershell
 | Invoke-Sigcheck              | Use it to check executables with sigcheck                                         |
 | Invoke-Capa                  | Use it to check executables with capa                                             |
 | Invoke-MftTimeline           | Use it to generate a timeline with MFTECmd and mactime                            |
+| Invoke-UsnJrnlForenscis      | Use it to parse $UsnJrnl with MFTECmd                                             |
 | Invoke-DcForensics           | Work in Progress / Collects Domain Controller relevant data                       |
 | Invoke-ExchangeForensics     | Work in Progress / Collects Exchange relevant data                                |
 | Invoke-RegistryMalwareSearch | Work in Progress / Searches for persistence in the registry                       |
@@ -31,3 +32,4 @@ Powershell Data Aquisition and Analysis Framework (PD2AF) - Different Powershell
 - [Invoke-Sigcheck](/docs/sigcheck.md)
 - [Invoke-Capa](/docs/capa.md)
 - [Invoke-MftTimeline](/docs/mfttimeline.md)
+- [Invoke-UsnJrnlForensics](/docs/usnjrnl.md)
