@@ -260,18 +260,10 @@ $target = "$KapePath\$Evtx"
 
 # Process each EVTX and write one CSV per file
 Get-ChildItem -Path $target -Filter *.evtx -Recurse | ForEach-Object {
-    try {
-        $count = (Get-WinEvent -Path $_.FullName -MaxEvents 1 -ErrorAction Stop).Count
-        if ($count -gt 0) {
-            $name = $_.BaseName
-            $dir = "$evtxDir\$name"
-            New-Directory -Path $dir
-            Invoke-EZTool -Name "evtx" -Executable "EvtxECmd\EvtxECmd.exe" -Target $_.FullName -Output $dir 
-        }
-    } 
-    catch {
-        <#Do this if a terminating exception happens#>
-    }
+    $name = $_.BaseName
+    $dir = "$evtxDir\$name"
+    New-Directory -Path $dir
+    Invoke-EZTool -Name "evtx" -Executable "EvtxECmd\EvtxECmd.exe" -Target $_.FullName -Output $dir 
 }
 
 #---------------------------------------------------------------------------------------------------------
