@@ -27,9 +27,9 @@ New-Directory -Path $basePath
 $TskPath = ""
 
 $paths = $env:PATH -Split ';'
-foreach ($path in $paths) {
-    if ($path.Contains($TskPathWord)) {  
-        $TskPath = $path
+foreach ($p in $paths) {
+    if ($p.Contains($TskPathWord)) {  
+        $TskPath = $p
         break
     }
 }
@@ -39,11 +39,13 @@ foreach ($path in $paths) {
 #---------------------------------------------------------------------------------------------------------
 
 $param = "-f $Path --body $basePath --bodyf tl.body --bdl $DriveLetter"
+Write-Host $param
 Start-Process -FilePath $MfteCmdPath -ArgumentList $param -Wait -NoNewWindow -RedirectStandardOutput "$basePath\mftecmd-log.txt" -RedirectStandardError "$basePath\mftecmd-error.txt"
 
 #---------------------------------------------------------------------------------------------------------
 # Parse body file with mactime
 #---------------------------------------------------------------------------------------------------------
 
-$param = "$TskPath\mactime.pl -b $basePath\tl.body -z UTC"
+$param = "$TskPath\mactime.pl -b $basePath\tl.body -d -z UTC"
+Write-Host $param
 Start-Process -FilePath $PerlPath -ArgumentList $param -Wait -NoNewWindow -RedirectStandardOutput "$basePath\mft-timeline.csv" -RedirectStandardError "$basePath\mfttl-error.txt"

@@ -12,7 +12,7 @@ Make sure that MFTECmd, [perl](https://strawberryperl.com/) and mactime is in PA
 
 | Option      | Type   | Default          | Description                                                             |
 | ----------- | ------ | ---------------- | ----------------------------------------------------------------------- |
-| Path        | String | -                | Path to directory in which all executables will be checked recursively  |
+| Path        | String | -                | Path to $MFT file                                                       |
 | Output      | String | .\results\mft-tl | Path to write timeline output                                           |
 | DriveLetter | String | C                | Drive letter used by mactime                                            |
 | MfteCmdPath | String | MFTECmd.exe      | Path to MFTECmd executable                                              |

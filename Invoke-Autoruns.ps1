@@ -1,5 +1,5 @@
 # Invokes Autorunsc on an image
-param($ErrorActionPreference = "SilentlyContinue",
+param(#$ErrorActionPreference = "SilentlyContinue",
     $Path,
     $Windows = "Windows",
     $Users = "Users",
@@ -41,5 +41,5 @@ Get-ChildItem $userPath -Directory | ForEach-Object {
     $prof = $_.FullName 
     $param = "-accepteula -nobanner -a * -t -c -h -s -z $windowsPath $prof"
     Write-Host $param
-    Start-Process -FilePath $AutorunscPath -ArgumentList $param -Wait -NoNewWindow -RedirectStandardOutput "$basePath\autoruns_$($_.Name).csv" -RedirectStandardError "$basePath\autorunsc-error.txt"
+    Start-Process -FilePath $AutorunscPath -ArgumentList $param -Wait -NoNewWindow -RedirectStandardOutput "$basePath\autoruns_$($_.Name).csv" -RedirectStandardError "$basePath\autorunsc_$($_.Name)-error.txt"
 }
