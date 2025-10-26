@@ -20,3 +20,4 @@ Powershell Data Aquisition and Analysis Framework (PD2AF) - Different Powershell
 | Invoke-DcForensics                                           | Work in Progress / Collects Domain Controller relevant data                                                                                     |
 | Invoke-ExchangeForensics                                     | Work in Progress / Collects Exchange relevant data                                                                                              |
 | Invoke-RegistryMalwareSearch                                 | Work in Progress / Searches for persistence in the registry                                                                                     |
+| Invoke-InvestigationDocumentation                            | Work in Progress / Provides a menu to setup a document structure to take notes, ioc, and a timeline for each system to be investigated          |
