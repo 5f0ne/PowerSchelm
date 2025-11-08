@@ -18,6 +18,7 @@ Powershell Data Aquisition and Analysis Framework (PD2AF) - Different Powershell
 | [Invoke-MftTimeline](/docs/mfttimeline.md)                   | Use it to generate a timeline with MFTECmd and mactime                                                                                          |
 | [Invoke-UsnJrnlForensics](/docs/usnjrnl.md)                  | Use it to parse $UsnJrnl with MFTECmd                                                                                                           |
 | [Invoke-ExchangeMTLForensics](/docs/mtlforensics.md)         | Parses Exchange Message Tracking Log (MTL) Files and add it into one csv file                                                                   |
+| [Invoke-MailHeaderForensics](/docs/mailheaderforensics.md)   | Parses files which includes mail headers and provides a list with metadata                                                                      |
 | Invoke-DcForensics                                           | Work in Progress / Collects Domain Controller relevant data                                                                                     |
 | Invoke-RegistryMalwareSearch                                 | Work in Progress / Searches for persistence in the registry                                                                                     |
 | Invoke-InvestigationDocumentation                            | Work in Progress / Provides a menu to setup a document structure to take notes, ioc, and a timeline for each system to be investigated          |

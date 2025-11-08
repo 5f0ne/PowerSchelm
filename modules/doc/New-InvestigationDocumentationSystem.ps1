@@ -15,10 +15,12 @@ function New-InvestigationDocumentationSystem {
     Add-Content -Path "$tlDir\tl.csv" -Value "Timestamp,System,Source,Description"
 
     $iocDir = "$p\ioc"
+    New-Directory -Path $iocDir
     New-Item -Path "$iocDir\ioc.csv" -ItemType File
     Add-Content -Path "$iocDir\ioc.csv" -Value "Source,Type,Value,Description"
 
     $loginDir = "$p\login"
+    New-Directory -Path $loginDir
     New-Item -Path "$loginDir\acc.csv" -ItemType File
     Add-Content -Path "$loginDir\acc.csv" -Value "Target,Count"
     New-Item -Path "$loginDir\ip.csv" -ItemType File
