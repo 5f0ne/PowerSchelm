@@ -1,7 +1,8 @@
 param(
     $Path,
     $Output = "./results/log2timeline",
-    $PSortOutput = "l2tcsv"
+    $PSortOutput = "l2tcsv",
+    $Parser = ""
 )
 
 #---------------------------------------------------------------------------------------------------------
@@ -34,7 +35,12 @@ $plasoPath = Join-Path -Path $basePath -ChildPath "result.plaso"
 $outLogPath = Join-Path -Path $basePath -ChildPath "l2t-log.txt"
 $outErrorPath = Join-Path -Path $basePath -ChildPath "l2t-error.txt"
 
-$a = "log2timeline.py --storage_file $plasoPath --logfile $logPath --partitions all --vss_stores all --workers 4 $Path"
+if ("" -eq $Parser) {
+    $a = "log2timeline.py --storage_file $plasoPath --logfile $logPath --partitions all --vss_stores all --workers 4 $Path"
+} else {
+    $a = "log2timeline.py --storage_file $plasoPath --logfile $logPath --parsers $Parser --partitions all --vss_stores all --workers 4 $Path"
+}
+
 Start-Process -FilePath "sudo" -ArgumentList $a -Wait -NoNewWindow -RedirectStandardOutput $outLogPath -RedirectStandardError $outErrorPath
 
 Write-Host "plaso file successfully created in $plasoPath"
