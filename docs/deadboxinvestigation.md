@@ -4,7 +4,7 @@ Starts Invoke-EZToolsForensics, Invoke-HayabusaForensics, Invoke-MftTimeline, In
 
 ## Usage
 
-`.\Invoke-DeadboxInvestigation.ps1 -Path [STRING] -Output [STRING]`
+`.\Invoke-DeadboxInvestigation.ps1 -KapePath [STRING] -Output [STRING]`
 
 | Option   | Type   | Default | Description                               |
 | -------- | ------ | ------- | ----------------------------------------- |
