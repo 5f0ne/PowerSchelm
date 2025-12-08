@@ -3,7 +3,7 @@ param(
     $OutputPath=".\results\kape",
     $KapePath="kape.exe",
     $VhdxIdentifier="kape-collection",
-    $KapeTargets="!BasicCollection,!SANS_Triage,KapeTriage,ServerTriage,CombinedLogs,IRCClients,RecycleBin,RemoteAdmin,SOFELK,SQLiteDatabases,TorrentClients,RecentFileCache,StartupFolders"
+    $KapeTargets="!BasicCollection,!SANS_Triage,KapeTriage,ServerTriage,CombinedLogs,IRCClients,RecycleBin,RemoteAdmin,SOFELK,SQLiteDatabases,TorrentClients,RecentFileCache,StartupFolders,CloudStorage_All"
 )
 
 $param="--tsource $Path --tdest $OutputPath --target $KapeTargets --vhdx $VhdxIdentifier --vss"
