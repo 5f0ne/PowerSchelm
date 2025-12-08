@@ -15,7 +15,7 @@ param($ErrorActionPreference = "SilentlyContinue",
     $Output = ".\results\eztoolsforensics",
     $ArchiveName = "eztoolsforensics",
     $EZToolsPathWord = "Get-ZimmermanTools",
-    $RebFile = "DFIRBatch.reb",
+    $RebPath = "",
     $Archive = $false
 )
 
@@ -76,7 +76,9 @@ foreach ($path in $paths) {
     }
 }
 
-$RebPath = "$EZPath\RECmd\BatchExamples\$RebFile"
+if($RebPath -eq ""){
+    $RebPath = "$EZPath\RECmd\BatchExamples"
+}
 
 #---------------------------------------------------------------------------------------------------------
 # Prefetch (PECmd)
@@ -225,17 +227,22 @@ Get-ChildItem -Path $target -Recurse -File -Filter 'ActivitiesCache.db' -Force |
 
 $pathBase = "$basePath\13-registry"
 New-Directory -Path $pathBase
-$rebPath = "--bn $RebPath"
 
-$systemDir = "$pathBase\01-system"
-New-Directory -Path $systemDir
-$target = "$KapePath\$Registry"
-Invoke-EZTool -Name "recmd" -Executable "RECmd\RECmd.exe" -Target $target -Output $systemDir -Params $rebPath -IsDir $true
+Get-ChildItem -Path $RebPath -Filter *.reb | ForEach-Object {
+    $name = $_.BaseName
+    $dir = "$pathBase\$name"
+    New-Directory -Path $dir
 
-$userDir = "$pathBase\02-user"
-New-Directory -Path $userDir
-$target = "$KapePath\$RegistryUser"
-Invoke-EZTool -Name "recmd" -Executable "RECmd\RECmd.exe" -Target $target -Output $userDir -Params $rebPath -IsDir $true
+    $systemDir = "$dir\01-system"
+    New-Directory -Path $systemDir
+    $target = "$KapePath\$Registry"
+    Invoke-EZTool -Name "recmd" -Executable "RECmd\RECmd.exe" -Target $target -Output $systemDir -Params "--bn $($_.FullName)" -IsDir $true
+
+    $userDir = "$dir\02-user"
+    New-Directory -Path $userDir
+    $target = "$KapePath\$RegistryUser"
+    Invoke-EZTool -Name "recmd" -Executable "RECmd\RECmd.exe" -Target $target -Output $userDir -Params "--bn $($_.FullName)" -IsDir $true
+}
 
 #---------------------------------------------------------------------------------------------------------
 # MFT (MFTECmd)
