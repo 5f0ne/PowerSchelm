@@ -10,6 +10,9 @@ param(
 # HayabusaForensics
 .\Invoke-HayabusaForensics.ps1 -Path $KapePath -Output "$Output\results\hayabusaforensics" 
 
+# PSLogCollection
+.\Invoke-PSLogCollection.ps1 -Path $KapePath -Output "$Output\results\pslogcollection"
+
 # MftTimeline
 .\Invoke-MftTimeline.ps1 -Path "$KapePath\`$MFT" -Output "$Output\results\mft-tl" 
 

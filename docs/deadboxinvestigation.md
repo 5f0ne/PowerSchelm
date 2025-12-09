@@ -1,6 +1,6 @@
 # Invoke-DeadboxInvestigation
 
-Starts Invoke-EZToolsForensics, Invoke-HayabusaForensics, Invoke-MftTimeline, Invoke-UsnJrnlForensics and Invoke-Autoruns on a given KAPE image.  
+Starts Invoke-EZToolsForensics, Invoke-HayabusaForensics, Invoke-PSLogCollection, Invoke-MftTimeline, Invoke-UsnJrnlForensics and Invoke-Autoruns on a given KAPE image.  
 
 ## Usage
 
