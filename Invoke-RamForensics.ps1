@@ -12,7 +12,8 @@ param($ErrorActionPreference = "SilentlyContinue",
     $StringLength = 10,
     # If true, zip the result files
     $Archive = $false, 
-    $ArchiveName = "ramforensics"
+    $ArchiveName = "ramforensics",
+    $Bstrings = $False
 )
 
 #---------------------------------------------------------------------------------------------------------
@@ -65,16 +66,33 @@ New-Directory -Path $basePath
 # --------------------------------------------------------------------------------------------------------------
 # EZ Tools
 # --------------------------------------------------------------------------------------------------------------
+# bstrings
+# --------------------------------------------------------------------------------------------------------------
 
 
-$pathBase = "$basePath\01-bstrings"
-New-Directory -Path $pathBase
+if($Bstrings){ 
+    $pathBase = "$basePath\01-bstrings"
+    New-Directory -Path $pathBase
 
-$p = "$pathBase\bstrings.txt"
-Start-Process -FilePath "bstrings.exe" -ArgumentList "-s -f $Path -o $p -m $StringLength -q --sl --sa" -NoNewWindow -Wait
+    $p = "$pathBase\bstrings-all.txt"
+    $stdOut = "$pathBase\bstrings-log.txt"
+    $stdErr = "$pathBase\bstrings-error.txt"
+    Start-Process -FilePath "bstrings.exe" -ArgumentList "-s -f $Path -o $p -m $StringLength --sl --sa" -RedirectStandardOutput $stdOut -RedirectStandardError $stdErr -NoNewWindow -Wait
+
+    $items = "aeon", "b64", "bitcoin", "bitlocker", "bytecoin", 
+    "cc", "dashcoin", "dashcoin2", "email", "fantomcoin", "guid", 
+    "ipv4", "ipv6", "mac", "monero", "reg_path", "sid", "ssn",
+    "sumokoin", "unc", "url3986", "urlUser", "usPhone", "var_set", 
+    "win_path", "xml", "zip"
+
+    foreach ($i in $items) {
+        $p = "$pathbase\bstrings-$i.txt"
+        Start-Process -FilePath "bstrings.exe" -ArgumentList "-s -f $Path -o $p --sl --sa --lr $i" -RedirectStandardOutput $stdOut -RedirectStandardError $stdErr -NoNewWindow -Wait
+    }
+}
 
 # --------------------------------------------------------------------------------------------------------------
-# Volatility
+# Volatility3
 # --------------------------------------------------------------------------------------------------------------
 # Process
 # --------------------------------------------------------------------------------------------------------------

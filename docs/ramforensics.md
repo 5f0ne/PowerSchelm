@@ -17,6 +17,7 @@ Make sure that EZTools and Volatility are in PATH.
 | StringLength | Int    | 10                     | Length of strings extracted by bstrings                |
 | ArchiveName  | String | ramforensics           | Name of the archive                                    |
 | Archive      | Bool   | $false                 | If true, an archive of the files is created and hashed |
+| BStrings     | Bool   | $false                 | If true, bstrings with Regex search is activated       |
 
 ## Result
 
