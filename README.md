@@ -21,6 +21,7 @@ Powershell Data Aquisition and Analysis Framework (PD2AF) - Different Powershell
 | [Invoke-MailHeaderForensics](/docs/mailheaderforensics.md)   | Parses files which includes mail headers and provides a list with metadata                                                                      |
 | [Invoke-Log2Timeline](/docs/log2timeline.md)                 | Creates a supertimeline with log2timeline/plaso                                                                                                 |
 | [Invoke-PSLogCollection](/docs/pslogcollection.md)           | Collects PowerShell Transcript and ReadLine log files                                                                                           |
+| [Invoke-TempDirectoriesListing](/docs/temdirls.md)           | Lists all files in Windows Users and System Temp folders                                                                                        |
 | Invoke-DcForensics                                           | Work in Progress / Collects Domain Controller relevant data                                                                                     |
 | Invoke-RegistryMalwareSearch                                 | Work in Progress / Searches for persistence in the registry                                                                                     |
 | Invoke-InvestigationDocumentation                            | Work in Progress / Provides a menu to setup a document structure to take notes, ioc, and a timeline for each system to be investigated          |
