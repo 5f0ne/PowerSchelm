@@ -2,8 +2,11 @@ function Get-22SysmonEvents {
     param(
         $ErrorActionPreference = "SilentlyContinue",
         $EventDesc = "DNS",
-        $StartTime = (Get-Date).AddHours(-24),
-        $EndTime = (Get-Date)
+        [int]$MinutesBack = 10,
+        $EndTime = (Get-Date),
+        $StartTime = $EndTime.AddMinutes(-$MinutesBack),
+        $OutputPath = ".",
+        $OutputName = "sysmon-22.csv"
     )
 
     $events = Get-WinEvent -FilterHashtable @{
@@ -27,5 +30,5 @@ function Get-22SysmonEvents {
         }
     }
 
-    $parsed | Export-Csv -Path "sysmon-22.csv" -NoTypeInformation
+    $parsed | Export-Csv -Path "$OutputPath\$OutputName" -NoTypeInformation
 }

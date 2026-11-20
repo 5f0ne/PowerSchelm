@@ -2,5 +2,6 @@ results/
 test/
 template/
 wip/
+logs/
 TODO.md
 *.dll

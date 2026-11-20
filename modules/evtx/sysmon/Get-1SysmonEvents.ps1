@@ -2,8 +2,11 @@ function Get-1SysmonEvents {
     param(
         $ErrorActionPreference="SilentlyContinue",
         $EventDesc = "Process created",
-        $StartTime = (Get-Date).AddHours(-24),
-        $EndTime = (Get-Date)
+        [int]$MinutesBack = 10,
+        $EndTime = (Get-Date),
+        $StartTime = $EndTime.AddMinutes(-$MinutesBack),
+        $OutputPath = ".",
+        $OutputName = "sysmon-01.csv"
     )
 
     $events = Get-WinEvent -FilterHashtable @{
@@ -28,5 +31,5 @@ function Get-1SysmonEvents {
         }
     }
 
-    $parsed | Export-Csv -Path "sysmon-1.csv" -NoTypeInformation
+    $parsed | Export-Csv -Path "$OutputPath\$OutputName" -NoTypeInformation
 }

@@ -2,8 +2,11 @@ function Get-19SysmonEvents {
     param(
         $ErrorActionPreference = "SilentlyContinue",
         $EventDesc = "WMI event (WmiEventFilter activity detected)",
-        $StartTime = (Get-Date).AddHours(-24),
-        $EndTime = (Get-Date)
+        [int]$MinutesBack = 10,
+        $EndTime = (Get-Date),
+        $StartTime = $EndTime.AddMinutes(-$MinutesBack),
+        $OutputPath = ".",
+        $OutputName = "sysmon-19.csv"
     )
 
     $events = Get-WinEvent -FilterHashtable @{
@@ -27,5 +30,5 @@ function Get-19SysmonEvents {
         }
     }
 
-    $parsed | Export-Csv -Path "sysmon-19.csv" -NoTypeInformation
+    $parsed | Export-Csv -Path "$OutputPath\$OutputName" -NoTypeInformation
 }

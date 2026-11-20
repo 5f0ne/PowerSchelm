@@ -2,8 +2,11 @@ function Get-4104PsEvents {
     param(
         $ErrorActionPreference="SilentlyContinue",
         $EventDesc = "PowerShell Script Block Logging",
-        $StartTime = (Get-Date).AddHours(-24),
-        $EndTime = (Get-Date)
+        [int]$MinutesBack = 10,
+        $StartTime = (Get-Date).AddMinutes(-$MinutesBack),
+        $EndTime = (Get-Date),
+        $OutputPath = ".",
+        $OutputName = "ps-4104.csv"
     )
 
     $events = Get-WinEvent -FilterHashtable @{
@@ -16,6 +19,7 @@ function Get-4104PsEvents {
     $parsed = $events | ForEach-Object {
         $xml = [xml]$_.ToXml()
         [PSCustomObject]@{
+            EventDescription = $EventDesc
             TimeCreated = $_.TimeCreated
             ProcessId = $_.Execution.ProcessId
             MessageNumber = $xml.Event.EventData.Data | Where-Object {$_.Name -eq "MessageNumber"} | Select-Object -ExpandProperty '#text'
@@ -25,5 +29,5 @@ function Get-4104PsEvents {
         }
     }
     
-    $parsed | Export-Csv -Path "ps-4104.csv" -NoTypeInformation
+    $parsed | Export-Csv -Path "$OutputPath\$OutputName" -NoTypeInformation
 }

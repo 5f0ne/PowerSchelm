@@ -4,20 +4,20 @@ Uses `bstrings` and `Volatility` to collect information from ram images.
 
 ## Prerequisites
 
-Make sure that EZTools and Volatility are in PATH.
+Make sure that `EZTools` and `Volatility` are in `PATH`.
 
 ## Usage
 
 `.\Invoke-RamForensics.ps1 -Path [STRING] -Output [STRING] -StringLength [Int] -ArchiveName [STRING] -Archive [Bool]`
 
-| Option       | Type   | Default                | Description                                            |
-| ------------ | ------ | ---------------------- | ------------------------------------------------------ |
-| Path         | String | -                      | Path to RAM image                                      |
-| Output       | String | .\results\ramforensics | Path to write RamForensics Output                      |
-| StringLength | Int    | 10                     | Length of strings extracted by bstrings                |
-| ArchiveName  | String | ramforensics           | Name of the archive                                    |
-| Archive      | Bool   | $false                 | If true, an archive of the files is created and hashed |
-| BStrings     | Bool   | $false                 | If true, bstrings with Regex search is activated       |
+| Option             | Type   | Default                | Description                                            |
+| ------------------ | ------ | ---------------------- | ------------------------------------------------------ |
+| Path               | String | -                      | Path to RAM image                                      |
+| Output             | String | .\results\ramforensics | Path to write RamForensics Output                      |
+| StringLength       | Int    | 10                     | Length of strings extracted by bstrings                |
+| ArchiveName        | String | ramforensics           | Name of the archive                                    |
+| Archive            | Bool   | $false                 | If true, an archive of the files is created and hashed |
+| ApplyBstringsRegex | Bool   | $false                 | If true, bstrings with Regex search is activated       |
 
 ## Result
 
@@ -27,21 +27,26 @@ Creates the following folder structure with analysis results saved to `txt` and 
 \---ramforensics
     \---01-01-1970_12-00-00Z
         +---01-bstrings
-        +---02-processes
-        +---03-scheduled-tasks
-        +---04-dlllist
-        +---05-handles
-        +---06-cmdline
-        +---07-getsids
-        +---08-netstat
-        +---09-netscan
-        +---10-ldrmodules
-        +---11-malfind
-        +---12-ssdt
-        +---13-modules
-        +---14-modscan
-        +---15-filescan
-        +---16-svcscan
-        +---17-envars
+            +---01-all
+            +---02-regex
+            +---99-error
+        +---02-vol3
+            +---01-processes
+            +---02-scheduled-tasks
+            +---03-dlllist
+            +---04-handles
+            +---05-cmdline
+            +---06-getsids
+            +---07-netstat
+            +---08-netscan
+            +---09-ldrmodules
+            +---10-malfind
+            +---11-ssdt
+            +---12-modules
+            +---13-modscan
+            +---14-filescan
+            +---15-svcscan
+            +---16-envars
+            \---99-error
         \---99-error
 ```

@@ -4,7 +4,7 @@ param(
     $DriveLetter = "C",
     $MfteCmdPath = "MFTECmd.exe",
     $PerlPath = "perl.exe",
-    $TskPathWord = "SleuthKit"
+    $TskPathWord = "sleuthkit"
 )
 
 # 

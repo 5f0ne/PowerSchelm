@@ -7,7 +7,7 @@ function Get-AlternateDataStream {
     $ads_content = "$ResultPath\alternate-data-streams-content.txt"
     $ads_array = @()
     # Iterate over path and get all files with an alternate data stream
-    Get-ChildItem -Path $AdsEnumPath -Recurse -Force | Get-Item -Stream * | Where-Object { $_.Stream -ne ":`$DATA" } | ForEach-Object {
+    Get-ChildItem -Path $AdsEnumPath -Recurse -File -Force | Get-Item -Stream * | Where-Object { $_.Stream -ne ":`$DATA" } | ForEach-Object {
         # Extract the content of the alternate data stream and write it to a file as a hexdump
         $filenameAndStream = "`n`n$($_.FileName):$($_.Stream)" 
         $filenameAndStream | Out-File -Append -FilePath $ads_content

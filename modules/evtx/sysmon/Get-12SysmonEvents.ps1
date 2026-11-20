@@ -2,8 +2,11 @@ function Get-12SysmonEvents {
     param(
         $ErrorActionPreference = "SilentlyContinue",
         $EventDesc = "Registry  event (Object  create and  delete)",
-        $StartTime = (Get-Date).AddHours(-24),
-        $EndTime = (Get-Date)
+        [int]$MinutesBack = 10,
+        $EndTime = (Get-Date),
+        $StartTime = $EndTime.AddMinutes(-$MinutesBack),
+        $OutputPath = ".",
+        $OutputName = "sysmon-12.csv"
     )
 
     $events = Get-WinEvent -FilterHashtable @{
@@ -26,5 +29,5 @@ function Get-12SysmonEvents {
         }
     }
 
-    $parsed | Export-Csv -Path "sysmon-12.csv" -NoTypeInformation
+    $parsed | Export-Csv -Path "$OutputPath\$OutputName" -NoTypeInformation
 }

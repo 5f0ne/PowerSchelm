@@ -2,7 +2,13 @@
 
 Powershell Data Aquisition and Analysis Framework (PD2AF) - Different Powershell Tools for Data Aquisition and Analysis
 
+
+## Setup
+
+Please follow the instructions [here](/docs/setup.md)
+
 ## Overview
+
 
 | Name                                                         | Description                                                                                                                                     |
 | ------------------------------------------------------------ | ----------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -21,8 +27,18 @@ Powershell Data Aquisition and Analysis Framework (PD2AF) - Different Powershell
 | [Invoke-MailHeaderForensics](/docs/mailheaderforensics.md)   | Parses files which includes mail headers and provides a list with metadata                                                                      |
 | [Invoke-Log2Timeline](/docs/log2timeline.md)                 | Creates a supertimeline with log2timeline/plaso                                                                                                 |
 | [Invoke-PSLogCollection](/docs/pslogcollection.md)           | Collects PowerShell Transcript and ReadLine log files                                                                                           |
-| [Invoke-TempDirectoriesListing](/docs/temdirls.md)           | Lists all files in Windows Users and System Temp folders                                                                                        |
+| [Invoke-Bstrings](/docs/bstrings.md)                         | Use bstrings to collect information from a binary source                                                                                        |
+| [Invoke-Volatility3](/docs/volatility3.md)                   | Use volatility3 to collect information from a ram image                                                                                         |
+| [Invoke-FileListings](/docs/filelistings.md)                 | Creates file listings for interesting directories                                                                                               |
 | [Invoke-DownloadsListing](/docs/downloadsdirls.md)           | Lists all files in Windows Users Downloads folders                                                                                              |
+| [Invoke-AutostartListing](/docs/autostartls.md)              | Lists all files in Windows Users Startup folder                                                                                                 |
+| [Invoke-ShortcutTargetListing](/docs/lnkls.md)               | Lists all lnk files together with their respective target arguments                                                                             |
+| [Invoke-TempDirectoriesListing](/docs/temdirls.md)           | Lists all files in Windows Users and System Temp folders                                                                                        |
+| [Invoke-ZoneIdentifierListing](/docs/zoneidentifierls.md)    | Lists all Zone Identifier Values from Alternate Data Streams                                                                                    |
+| [Invoke-ADSListing](/docs/adsls.md)                          | Lists all Alternate Data Streams                                                                                                                |
+| [Invoke-LiveWindowsEventCollection](docs/livewineventcol.md) | Work in Progess / Collects Windows Events from a live system                                                                                    |
+| Invoke-ADSListing                                            | Work in Progress / Lists all Alternate Data Streams (ADS) and its contents                                                                      |
+| Invoke-AutostartListing                                      | Work in Progress / Lists all Files in Autostart Directory                                                                                       |
 | Invoke-DcForensics                                           | Work in Progress / Collects Domain Controller relevant data                                                                                     |
 | Invoke-RegistryMalwareSearch                                 | Work in Progress / Searches for persistence in the registry                                                                                     |
 | Invoke-InvestigationDocumentation                            | Work in Progress / Provides a menu to setup a document structure to take notes, ioc, and a timeline for each system to be investigated          |
